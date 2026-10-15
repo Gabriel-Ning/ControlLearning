@@ -1,0 +1,138 @@
+{
+  "backbone": {
+    "name": "dinov3_vits16",
+    "timm_name": "vit_small_patch16_dinov3.lvd1689m",
+    "hf_hub_id": "timm/vit_small_patch16_dinov3.lvd1689m",
+    "hf_revision": "3bf4720a82ec2066db88137180ff1f83a675cef0",
+    "img_size": 224,
+    "feature_dim": 384,
+    "num_prefix_tokens": 5,
+    "num_params": 21586944,
+    "preprocessing": "uint8 RGB -> float [0,1] -> resize to 224 (bilinear, if needed) -> normalize ImageNet mean/std; eval mode, fp32, no augmentation"
+  },
+  "dataset": "data_cache/reaching_v1",
+  "splits": {
+    "cf_test_v0": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "525ee3c5bdaf6150",
+      "patch_mean_sha256": "fb9e26e41b805adc",
+      "cls_norm_mean": 9.21824836730957
+    },
+    "cf_test_v1": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "d60102b92fe3e5f8",
+      "patch_mean_sha256": "a9e224643b548dfe",
+      "cls_norm_mean": 9.215849876403809
+    },
+    "cf_test_v2": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "e60cb5abb221d41e",
+      "patch_mean_sha256": "15aa08fe35fe11d3",
+      "cls_norm_mean": 9.191061019897461
+    },
+    "cf_test_v3": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "01a8bec3d90c6dcd",
+      "patch_mean_sha256": "19678597ed513468",
+      "cls_norm_mean": 9.188533782958984
+    },
+    "geo_ood": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "9dac99908aab2658",
+      "patch_mean_sha256": "9e70a0e97eba83b5",
+      "cls_norm_mean": 9.224984169006348
+    },
+    "id_test": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "4968d2e0010a00c5",
+      "patch_mean_sha256": "fc9a2a7a550971c6",
+      "cls_norm_mean": 9.21988296508789
+    },
+    "ood_bg": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "40ffc6bafbdd73e1",
+      "patch_mean_sha256": "a7daaa0615e3b4e6",
+      "cls_norm_mean": 9.191551208496094
+    },
+    "sp_test_v0": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "02b3c73030a9f328",
+      "patch_mean_sha256": "ada94836ccebeafe",
+      "cls_norm_mean": 9.220054626464844
+    },
+    "sp_test_v1": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "d5177d8130821f69",
+      "patch_mean_sha256": "82cfcd1d43b53f7a",
+      "cls_norm_mean": 9.213906288146973
+    },
+    "train": {
+      "n": 10000,
+      "cls_shape": [
+        10000,
+        384
+      ],
+      "cls_sha256": "b491dc3113ece242",
+      "patch_mean_sha256": "87165a3fde910e18",
+      "cls_norm_mean": 9.2173433303833
+    },
+    "val": {
+      "n": 2000,
+      "cls_shape": [
+        2000,
+        384
+      ],
+      "cls_sha256": "abf50e9f29d4bef4",
+      "patch_mean_sha256": "c5a5463d024165df",
+      "cls_norm_mean": 9.215500831604004
+    }
+  },
+  "feature_keys": [
+    "cls",
+    "patch_mean"
+  ],
+  "primary_feature": "cls",
+  "created": "2026-10-15 23:51:47",
+  "determinism": {
+    "max_abs_diff_repeat": 0.0,
+    "max_abs_diff_vs_cache": 0.0,
+    "tolerance": 0.0001,
+    "passed": true
+  }
+}
