@@ -1,0 +1,114 @@
+[
+ {
+  "model": "m1",
+  "lr": "1e-2",
+  "best_val_mse": 0.10900236666202545,
+  "best_step": 3500,
+  "nonfinite": 0
+ },
+ {
+  "model": "m1",
+  "lr": "1e-3",
+  "best_val_mse": 0.12624043226242065,
+  "best_step": 4500,
+  "nonfinite": 0
+ },
+ {
+  "model": "m1",
+  "lr": "3e-3",
+  "best_val_mse": 0.11385617405176163,
+  "best_step": 2250,
+  "nonfinite": 0
+ },
+ {
+  "model": "m1",
+  "lr": "3e-4",
+  "best_val_mse": 0.14320211112499237,
+  "best_step": 3250,
+  "nonfinite": 0
+ },
+ {
+  "model": "m2",
+  "lr": "1e-2",
+  "best_val_mse": 0.1131785586476326,
+  "best_step": 2250,
+  "nonfinite": 0
+ },
+ {
+  "model": "m2",
+  "lr": "1e-3",
+  "best_val_mse": 0.1217590719461441,
+  "best_step": 2750,
+  "nonfinite": 0
+ },
+ {
+  "model": "m2",
+  "lr": "3e-3",
+  "best_val_mse": 0.10803878307342529,
+  "best_step": 2250,
+  "nonfinite": 0
+ },
+ {
+  "model": "m2",
+  "lr": "3e-4",
+  "best_val_mse": 0.13915374875068665,
+  "best_step": 3250,
+  "nonfinite": 0
+ },
+ {
+  "model": "m3",
+  "lr": "1e-2",
+  "best_val_mse": 0.10682010650634766,
+  "best_step": 4000,
+  "nonfinite": 0
+ },
+ {
+  "model": "m3",
+  "lr": "1e-3",
+  "best_val_mse": 0.11397556960582733,
+  "best_step": 3000,
+  "nonfinite": 0
+ },
+ {
+  "model": "m3",
+  "lr": "3e-3",
+  "best_val_mse": 0.10515333712100983,
+  "best_step": 3500,
+  "nonfinite": 0
+ },
+ {
+  "model": "m3",
+  "lr": "3e-4",
+  "best_val_mse": 0.1443648636341095,
+  "best_step": 2750,
+  "nonfinite": 0
+ },
+ {
+  "model": "m4",
+  "lr": "1e-2",
+  "best_val_mse": 0.10523248463869095,
+  "best_step": 5750,
+  "nonfinite": 0
+ },
+ {
+  "model": "m4",
+  "lr": "1e-3",
+  "best_val_mse": 0.0910353735089302,
+  "best_step": 4500,
+  "nonfinite": 0
+ },
+ {
+  "model": "m4",
+  "lr": "3e-3",
+  "best_val_mse": 0.09271657466888428,
+  "best_step": 5500,
+  "nonfinite": 0
+ },
+ {
+  "model": "m4",
+  "lr": "3e-4",
+  "best_val_mse": 0.12357655167579651,
+  "best_step": 2750,
+  "nonfinite": 0
+ }
+]

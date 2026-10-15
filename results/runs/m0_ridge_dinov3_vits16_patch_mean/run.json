@@ -1,0 +1,13 @@
+{
+  "run_name": "m0_ridge_dinov3_vits16_patch_mean",
+  "kind": "m0",
+  "backbone": "dinov3_vits16",
+  "feature_key": "patch_mean",
+  "ridge_alpha": 10.0,
+  "config": {
+    "data_root": "data_cache/reaching_v1",
+    "features_root": "results/features",
+    "backbone": "dinov3_vits16",
+    "feature_key": "patch_mean"
+  }
+}

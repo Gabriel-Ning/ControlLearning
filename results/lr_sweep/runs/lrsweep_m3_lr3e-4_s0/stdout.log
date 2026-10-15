@@ -1,0 +1,30 @@
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+[lrsweep_m3_lr3e-4_s0] step     0 loss 5.5564 fm=2.5810 pair_frac_diag=1.0000 action=2.9754 emb=148.1946 | val mse 1.2620 ang 97.99 | 0s
+[lrsweep_m3_lr3e-4_s0] step   250 loss 0.5705 fm=0.1150 pair_frac_diag=1.0000 action=0.4556 emb=6.4560 | val mse 0.2215 ang 42.24 | 9s
+[lrsweep_m3_lr3e-4_s0] step   500 loss 0.3437 fm=0.0711 pair_frac_diag=1.0000 action=0.2726 emb=3.7610 | val mse 0.1702 ang 36.43 | 17s
+[lrsweep_m3_lr3e-4_s0] step   750 loss 0.2809 fm=0.0610 pair_frac_diag=1.0000 action=0.2199 emb=2.3661 | val mse 0.1518 ang 32.44 | 26s
+[lrsweep_m3_lr3e-4_s0] step  1000 loss 0.1544 fm=0.0470 pair_frac_diag=1.0000 action=0.1074 emb=1.8537 | val mse 0.1540 ang 32.76 | 35s
+[lrsweep_m3_lr3e-4_s0] step  1250 loss 0.1012 fm=0.0374 pair_frac_diag=1.0000 action=0.0638 emb=1.3678 | val mse 0.1555 ang 31.96 | 43s
+[lrsweep_m3_lr3e-4_s0] step  1500 loss 0.0638 fm=0.0315 pair_frac_diag=1.0000 action=0.0323 emb=0.9770 | val mse 0.1529 ang 31.83 | 52s
+[lrsweep_m3_lr3e-4_s0] step  1750 loss 0.0476 fm=0.0245 pair_frac_diag=1.0000 action=0.0230 emb=0.6238 | val mse 0.1508 ang 31.80 | 61s
+[lrsweep_m3_lr3e-4_s0] step  2000 loss 0.0340 fm=0.0210 pair_frac_diag=1.0000 action=0.0130 emb=0.5799 | val mse 0.1467 ang 31.25 | 69s
+[lrsweep_m3_lr3e-4_s0] step  2250 loss 0.0268 fm=0.0178 pair_frac_diag=1.0000 action=0.0090 emb=0.4335 | val mse 0.1478 ang 31.29 | 78s
+[lrsweep_m3_lr3e-4_s0] step  2500 loss 0.0276 fm=0.0163 pair_frac_diag=1.0000 action=0.0113 emb=0.3754 | val mse 0.1455 ang 31.41 | 86s
+[lrsweep_m3_lr3e-4_s0] step  2750 loss 0.0209 fm=0.0141 pair_frac_diag=1.0000 action=0.0067 emb=0.2827 | val mse 0.1444 ang 30.63 | 94s
+[lrsweep_m3_lr3e-4_s0] step  3000 loss 0.0192 fm=0.0126 pair_frac_diag=1.0000 action=0.0066 emb=0.2698 | val mse 0.1466 ang 30.82 | 103s
+[lrsweep_m3_lr3e-4_s0] step  3250 loss 0.0151 fm=0.0107 pair_frac_diag=1.0000 action=0.0044 emb=0.2081 | val mse 0.1449 ang 31.15 | 112s
+[lrsweep_m3_lr3e-4_s0] step  3500 loss 0.0133 fm=0.0103 pair_frac_diag=1.0000 action=0.0030 emb=0.1940 | val mse 0.1465 ang 31.10 | 121s
+[lrsweep_m3_lr3e-4_s0] step  3750 loss 0.0112 fm=0.0088 pair_frac_diag=1.0000 action=0.0024 emb=0.1610 | val mse 0.1453 ang 30.82 | 129s
+[lrsweep_m3_lr3e-4_s0] step  4000 loss 0.0094 fm=0.0078 pair_frac_diag=1.0000 action=0.0015 emb=0.1494 | val mse 0.1456 ang 30.87 | 138s
+[lrsweep_m3_lr3e-4_s0] step  4250 loss 0.0076 fm=0.0070 pair_frac_diag=1.0000 action=0.0006 emb=0.1524 | val mse 0.1468 ang 30.99 | 146s
+[lrsweep_m3_lr3e-4_s0] step  4500 loss 0.0071 fm=0.0068 pair_frac_diag=1.0000 action=0.0003 emb=0.1696 | val mse 0.1475 ang 30.98 | 154s
+[lrsweep_m3_lr3e-4_s0] step  4750 loss 0.0070 fm=0.0067 pair_frac_diag=1.0000 action=0.0003 emb=0.1530 | val mse 0.1484 ang 31.04 | 163s
+[lrsweep_m3_lr3e-4_s0] step  5000 loss 0.0069 fm=0.0068 pair_frac_diag=1.0000 action=0.0001 emb=0.1637 | val mse 0.1488 ang 31.09 | 172s
+[lrsweep_m3_lr3e-4_s0] step  5250 loss 0.0055 fm=0.0054 pair_frac_diag=1.0000 action=0.0001 emb=0.1559 | val mse 0.1492 ang 31.11 | 180s
+[lrsweep_m3_lr3e-4_s0] step  5500 loss 0.0055 fm=0.0054 pair_frac_diag=1.0000 action=0.0001 emb=0.1463 | val mse 0.1496 ang 31.14 | 189s
+[lrsweep_m3_lr3e-4_s0] step  5750 loss 0.0060 fm=0.0059 pair_frac_diag=1.0000 action=0.0001 emb=0.1643 | val mse 0.1497 ang 31.15 | 198s
+[lrsweep_m3_lr3e-4_s0] step  5999 loss 0.0054 fm=0.0053 pair_frac_diag=1.0000 action=0.0001 emb=0.1557 | val mse 0.1498 ang 31.15 | 206s
+done lrsweep_m3_lr3e-4_s0: best val mse 0.14436 @ 2750, params 2752640, 206s

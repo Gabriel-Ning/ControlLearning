@@ -1,0 +1,13 @@
+{
+  "run_name": "m0_ridge_dinov3_vits16_cls",
+  "kind": "m0",
+  "backbone": "dinov3_vits16",
+  "feature_key": "cls",
+  "ridge_alpha": 31.622776601683793,
+  "config": {
+    "data_root": "data_cache/reaching_v1",
+    "features_root": "results/features",
+    "backbone": "dinov3_vits16",
+    "feature_key": "cls"
+  }
+}

@@ -1,0 +1,30 @@
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+[lrsweep_m1_lr1e-3_s0] step     0 loss 2.7634 action=2.7634 emb=165.9279 | val mse 1.2476 ang 96.38 | 0s
+[lrsweep_m1_lr1e-3_s0] step   250 loss 0.5606 action=0.5606 emb=153.8246 | val mse 0.2265 ang 42.45 | 2s
+[lrsweep_m1_lr1e-3_s0] step   500 loss 0.3167 action=0.3167 emb=116.1245 | val mse 0.1603 ang 36.19 | 4s
+[lrsweep_m1_lr1e-3_s0] step   750 loss 0.2056 action=0.2056 emb=97.8597 | val mse 0.1413 ang 30.69 | 6s
+[lrsweep_m1_lr1e-3_s0] step  1000 loss 0.0972 action=0.0972 emb=91.4576 | val mse 0.1382 ang 30.90 | 8s
+[lrsweep_m1_lr1e-3_s0] step  1250 loss 0.0650 action=0.0650 emb=88.6597 | val mse 0.1370 ang 30.24 | 10s
+[lrsweep_m1_lr1e-3_s0] step  1500 loss 0.0252 action=0.0252 emb=87.7081 | val mse 0.1362 ang 29.92 | 12s
+[lrsweep_m1_lr1e-3_s0] step  1750 loss 0.0125 action=0.0125 emb=83.9521 | val mse 0.1284 ang 28.84 | 13s
+[lrsweep_m1_lr1e-3_s0] step  2000 loss 0.0082 action=0.0082 emb=83.2751 | val mse 0.1308 ang 28.97 | 15s
+[lrsweep_m1_lr1e-3_s0] step  2250 loss 0.0023 action=0.0023 emb=83.6027 | val mse 0.1271 ang 28.57 | 17s
+[lrsweep_m1_lr1e-3_s0] step  2500 loss 0.0007 action=0.0007 emb=81.6002 | val mse 0.1266 ang 28.71 | 19s
+[lrsweep_m1_lr1e-3_s0] step  2750 loss 0.0004 action=0.0004 emb=81.9963 | val mse 0.1265 ang 28.65 | 21s
+[lrsweep_m1_lr1e-3_s0] step  3000 loss 0.0002 action=0.0002 emb=83.5112 | val mse 0.1264 ang 28.62 | 22s
+[lrsweep_m1_lr1e-3_s0] step  3250 loss 0.0001 action=0.0001 emb=81.7632 | val mse 0.1264 ang 28.67 | 24s
+[lrsweep_m1_lr1e-3_s0] step  3500 loss 0.0001 action=0.0001 emb=81.4150 | val mse 0.1263 ang 28.63 | 26s
+[lrsweep_m1_lr1e-3_s0] step  3750 loss 0.0000 action=0.0000 emb=81.1883 | val mse 0.1263 ang 28.62 | 28s
+[lrsweep_m1_lr1e-3_s0] step  4000 loss 0.0000 action=0.0000 emb=82.6649 | val mse 0.1262 ang 28.63 | 29s
+[lrsweep_m1_lr1e-3_s0] step  4250 loss 0.0000 action=0.0000 emb=82.3838 | val mse 0.1262 ang 28.62 | 31s
+[lrsweep_m1_lr1e-3_s0] step  4500 loss 0.0000 action=0.0000 emb=81.2557 | val mse 0.1262 ang 28.62 | 33s
+[lrsweep_m1_lr1e-3_s0] step  4750 loss 0.0000 action=0.0000 emb=81.8951 | val mse 0.1262 ang 28.62 | 35s
+[lrsweep_m1_lr1e-3_s0] step  5000 loss 0.0000 action=0.0000 emb=81.1551 | val mse 0.1262 ang 28.62 | 37s
+[lrsweep_m1_lr1e-3_s0] step  5250 loss 0.0000 action=0.0000 emb=83.0746 | val mse 0.1262 ang 28.62 | 38s
+[lrsweep_m1_lr1e-3_s0] step  5500 loss 0.0000 action=0.0000 emb=81.3457 | val mse 0.1262 ang 28.62 | 40s
+[lrsweep_m1_lr1e-3_s0] step  5750 loss 0.0000 action=0.0000 emb=81.9486 | val mse 0.1262 ang 28.62 | 42s
+[lrsweep_m1_lr1e-3_s0] step  5999 loss 0.0000 action=0.0000 emb=83.9453 | val mse 0.1262 ang 28.62 | 43s
+done lrsweep_m1_lr1e-3_s0: best val mse 0.12624 @ 4500, params 2752640, 44s

@@ -1,0 +1,30 @@
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+[m1_linear_dinov3_vits16_s1] step     0 loss 3.3205 action=3.3205 emb=176.4610 | val mse 1.2156 ang 84.48 | 0s
+[m1_linear_dinov3_vits16_s1] step   250 loss 2.4419 action=2.4419 emb=264.1408 | val mse 3.0234 ang 87.89 | 2s
+[m1_linear_dinov3_vits16_s1] step   500 loss 3.8266 action=3.8266 emb=165.8267 | val mse 0.4839 ang 70.14 | 4s
+[m1_linear_dinov3_vits16_s1] step   750 loss 0.7683 action=0.7683 emb=292.7308 | val mse 0.3174 ang 48.55 | 6s
+[m1_linear_dinov3_vits16_s1] step  1000 loss 0.9380 action=0.9380 emb=186.8146 | val mse 0.3560 ang 51.48 | 8s
+[m1_linear_dinov3_vits16_s1] step  1250 loss 0.7025 action=0.7025 emb=346.6952 | val mse 0.2694 ang 47.77 | 10s
+[m1_linear_dinov3_vits16_s1] step  1500 loss 0.4390 action=0.4390 emb=496.6904 | val mse 0.2132 ang 40.81 | 12s
+[m1_linear_dinov3_vits16_s1] step  1750 loss 0.3649 action=0.3649 emb=559.0565 | val mse 0.1834 ang 36.51 | 14s
+[m1_linear_dinov3_vits16_s1] step  2000 loss 0.3181 action=0.3181 emb=654.5604 | val mse 0.1416 ang 31.75 | 16s
+[m1_linear_dinov3_vits16_s1] step  2250 loss 0.2768 action=0.2768 emb=663.8425 | val mse 0.1356 ang 29.81 | 17s
+[m1_linear_dinov3_vits16_s1] step  2500 loss 0.2468 action=0.2468 emb=675.4631 | val mse 0.1198 ang 28.60 | 19s
+[m1_linear_dinov3_vits16_s1] step  2750 loss 0.2337 action=0.2337 emb=672.1843 | val mse 0.1226 ang 28.55 | 21s
+[m1_linear_dinov3_vits16_s1] step  3000 loss 0.2338 action=0.2338 emb=684.4771 | val mse 0.1104 ang 26.54 | 23s
+[m1_linear_dinov3_vits16_s1] step  3250 loss 0.2112 action=0.2112 emb=660.8917 | val mse 0.1234 ang 28.03 | 25s
+[m1_linear_dinov3_vits16_s1] step  3500 loss 0.1673 action=0.1673 emb=639.2433 | val mse 0.1129 ang 26.33 | 26s
+[m1_linear_dinov3_vits16_s1] step  3750 loss 0.1644 action=0.1644 emb=625.0078 | val mse 0.1125 ang 26.12 | 28s
+[m1_linear_dinov3_vits16_s1] step  4000 loss 0.1728 action=0.1728 emb=616.5214 | val mse 0.1116 ang 26.13 | 30s
+[m1_linear_dinov3_vits16_s1] step  4250 loss 0.1507 action=0.1507 emb=617.1890 | val mse 0.1105 ang 26.32 | 32s
+[m1_linear_dinov3_vits16_s1] step  4500 loss 0.1637 action=0.1637 emb=604.3329 | val mse 0.1107 ang 25.79 | 33s
+[m1_linear_dinov3_vits16_s1] step  4750 loss 0.1417 action=0.1417 emb=601.3552 | val mse 0.1105 ang 25.82 | 35s
+[m1_linear_dinov3_vits16_s1] step  5000 loss 0.1293 action=0.1293 emb=571.0227 | val mse 0.1131 ang 26.19 | 37s
+[m1_linear_dinov3_vits16_s1] step  5250 loss 0.0993 action=0.0993 emb=573.0300 | val mse 0.1116 ang 25.89 | 39s
+[m1_linear_dinov3_vits16_s1] step  5500 loss 0.1178 action=0.1178 emb=580.7161 | val mse 0.1118 ang 25.88 | 41s
+[m1_linear_dinov3_vits16_s1] step  5750 loss 0.0939 action=0.0939 emb=568.8147 | val mse 0.1120 ang 25.81 | 43s
+[m1_linear_dinov3_vits16_s1] step  5999 loss 0.1077 action=0.1077 emb=560.6865 | val mse 0.1119 ang 25.90 | 45s
+done m1_linear_dinov3_vits16_s1: best val mse 0.11037 @ 3000, params 2752640, 45s
