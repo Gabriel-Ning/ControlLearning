@@ -1,0 +1,195 @@
+{
+  "name": "reaching_v1",
+  "seed": 2026,
+  "sizes": {
+    "train": 10000,
+    "val": 2000,
+    "id_test": 2000,
+    "ood_bg": 2000,
+    "cf_test": 2000,
+    "sp_test": 2000,
+    "geo_ood": 2000
+  },
+  "git_sha": "8618d6cf713182685492c822a0fbc12430e3309a",
+  "generated_at": "2026-10-15 23:46:52",
+  "python": "3.10.19",
+  "numpy": "1.26.4",
+  "image_size": 224,
+  "workspace": 0.8,
+  "k_gain": 1.0,
+  "a_max": 1.5,
+  "geo_holdout_box": [
+    0.3,
+    0.8
+  ],
+  "seen_families": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "unseen_families": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "family_names": {
+    "0": "solid",
+    "1": "hstripes",
+    "2": "checker",
+    "3": "radial",
+    "4": "smooth_noise",
+    "5": "dstripes",
+    "6": "blobs",
+    "7": "white_noise",
+    "8": "multi_octave"
+  },
+  "draw_arm": true,
+  "max_distractors": 4,
+  "halo_prob": 0.5,
+  "spurious_diagnostic": false,
+  "continuous_nuisance_names": [
+    "hue",
+    "hue2",
+    "sat",
+    "val",
+    "freq",
+    "phase",
+    "angle"
+  ],
+  "state_layout": "[ee_x, ee_y, goal_x, goal_y]",
+  "action": "clip(k*(goal-ee), -a_max, a_max)",
+  "splits": {
+    "train": {
+      "n": 10000,
+      "images_sha256_subsample": "7cbed903f67538e2",
+      "clipped_fraction": 0.008,
+      "bg_family_counts": {
+        "0": 1969,
+        "1": 2087,
+        "2": 1986,
+        "3": 1969,
+        "4": 1989
+      }
+    },
+    "val": {
+      "n": 2000,
+      "images_sha256_subsample": "132bd982308daa91",
+      "clipped_fraction": 0.009,
+      "bg_family_counts": {
+        "0": 402,
+        "1": 396,
+        "2": 407,
+        "3": 409,
+        "4": 386
+      }
+    },
+    "id_test": {
+      "n": 2000,
+      "images_sha256_subsample": "9186ccebe5be903e",
+      "clipped_fraction": 0.006,
+      "bg_family_counts": {
+        "0": 358,
+        "1": 412,
+        "2": 429,
+        "3": 396,
+        "4": 405
+      }
+    },
+    "ood_bg": {
+      "n": 2000,
+      "images_sha256_subsample": "dd7e4f4073ad033c",
+      "clipped_fraction": 0.006,
+      "bg_family_counts": {
+        "5": 526,
+        "6": 461,
+        "7": 501,
+        "8": 512
+      }
+    },
+    "geo_ood": {
+      "n": 2000,
+      "images_sha256_subsample": "dbf2c115cf8c4847",
+      "clipped_fraction": 0.0115,
+      "bg_family_counts": {
+        "0": 404,
+        "1": 374,
+        "2": 415,
+        "3": 399,
+        "4": 408
+      }
+    },
+    "cf_test_v0": {
+      "n": 2000,
+      "images_sha256_subsample": "74d086db5f2cb106",
+      "clipped_fraction": 0.0055,
+      "bg_family_counts": {
+        "0": 364,
+        "1": 415,
+        "2": 417,
+        "3": 397,
+        "4": 407
+      }
+    },
+    "cf_test_v1": {
+      "n": 2000,
+      "images_sha256_subsample": "38c0b5ac2cbe30a6",
+      "clipped_fraction": 0.0055,
+      "bg_family_counts": {
+        "0": 387,
+        "1": 378,
+        "2": 420,
+        "3": 393,
+        "4": 422
+      }
+    },
+    "cf_test_v2": {
+      "n": 2000,
+      "images_sha256_subsample": "391fd77c7c4757f2",
+      "clipped_fraction": 0.0055,
+      "bg_family_counts": {
+        "5": 512,
+        "6": 478,
+        "7": 527,
+        "8": 483
+      }
+    },
+    "cf_test_v3": {
+      "n": 2000,
+      "images_sha256_subsample": "b277a374a108d07d",
+      "clipped_fraction": 0.0055,
+      "bg_family_counts": {
+        "5": 505,
+        "6": 517,
+        "7": 477,
+        "8": 501
+      }
+    },
+    "sp_test_v0": {
+      "n": 2000,
+      "images_sha256_subsample": "0f8759f90cf1ae1c",
+      "clipped_fraction": 0.0135,
+      "bg_family_counts": {
+        "0": 364,
+        "1": 415,
+        "2": 417,
+        "3": 397,
+        "4": 407
+      }
+    },
+    "sp_test_v1": {
+      "n": 2000,
+      "images_sha256_subsample": "46a647f564ac4967",
+      "clipped_fraction": 0.0045,
+      "bg_family_counts": {
+        "0": 364,
+        "1": 415,
+        "2": 417,
+        "3": 397,
+        "4": 407
+      }
+    }
+  }
+}
