@@ -149,13 +149,15 @@ being 2-dimensional.
   2-D action plane** (M2 keeps 22 dimensions alive and `frac_x_in_W` ≈ 0.06 at t = 1 — its endpoint satisfies `Wᵀz₁ ≈ a`
   without lying in `span(W)`). Both are direct consequences of the FM regression target `u = W a − z₀`, not emergent
   representation learning.
-* The loss-decomposition ablation B (`fm_only`, `endpoint + embedding loss`, `M1 + embedding loss`) tests whether the
-  collapse / robustness can be obtained with an explicit `‖z₁ − W a‖²` term instead of FM — see §6 (filled after the
-  ablation suite).
+* The loss-decomposition ablation B (§6) shows that the collapse onto the action plane, the drop of the nuisance ratio and
+  the decodability are all obtained — more strongly — with an explicit `‖z₁ − W a‖²` term and no flow at all, on the ODE
+  architecture *and* on the one-shot regression head; only the step robustness is not.
 
 **Answer to Q4: yes.** On this benchmark the representational changes that matter for control (decodability, nuisance
-ratio at matched rank, OOD action error) are explained by endpoint supervision on the shared architecture. The residual
-FM-specific effects are geometric (straightness of the field, confinement to the action plane).
+ratio at matched rank, OOD action error) are explained by endpoint supervision on the shared architecture, and the
+remaining geometric changes (confinement to the action plane, lower ratio) by the implicit latent target `z₁ → W a`,
+which can be written down as a plain regression loss. The single residual FM-specific effect is the straightness of the
+velocity field (integration-step robustness).
 
 ## 5. Unseen background distributions (Q5)
 
@@ -179,8 +181,48 @@ explicit invariance supervision transfers weakly through frozen features.
 
 ## 6. Ablations relevant to the mechanism (A–F)
 
-_Filled from `reports/tables/table_ablations_action.md` and the per-run analysis CSVs after the ablation suite finished —
-see the end of this file._
+Action-level ablation results are in `02_baseline_results.md` §4. Here: the representation metrics of the ablation runs
+at their final stage (mean over 3 seeds; `results/metrics/{invariance,subspaces,probes}.csv`).
+
+| variant (final stage) | z-scored R | raw R | erank | frac_x_in_W | selectivity_C | probe R² id / ood_bg |
+|---|---|---|---|---|---|---|
+| M1 z₁ | 1.69 | 1.50 | 15.3 | – | 5.8 | 0.706 / 0.272 |
+| M2 t=1 | 1.27 | 1.15 | 22.5 | 0.06 | 4.1 | 0.748 / 0.321 |
+| **M3 t=1** | **0.91** | **0.58** | **2.75** | **0.96** | **1.25** | **0.755 / 0.322** |
+| B: FM only, t=1 | 0.59 | 0.59 | 2.0 | 1.00 | 1.02 | 0.710 / 0.008 |
+| B: endpoint + `‖z₁−Wa‖²` (no FM), t=1 | 0.38 | 0.38 | 2.0 | 1.00 | 1.01 | 0.763 / 0.341 |
+| B: M1 + `‖z₁−Wa‖²` (no flow), z₁ | 0.55 | 0.46 | 2.25 | – | 1.06 | 0.770 / 0.258 |
+| F: OT re-pairing, t=1 | 0.93 | 0.63 | 3.4 | 0.92 | 1.35 | 0.756 / 0.293 |
+| A: M3 trained with 1 step, t=1 | 1.15 | 0.81 | 3.9 | 0.91 | 1.47 | 0.711 / 0.209 |
+| C: M2 with MLP projector, t=1 | 0.74 | 0.62 | 5.6 | 0.22 | 1.6 | 0.728 / 0.255 |
+| C: M3 with MLP projector, t=1 | 0.56 | 0.52 | 2.4 | 0.97 | 1.15 | 0.730 / 0.224 |
+| D: M3 on DINOv2, t=1 | 1.44 | 1.06 | 8.6 | 0.81 | 2.3 | 0.644 / 0.295 |
+| D: M2 on DINOv2, t=1 | 1.41 | 1.14 | 17.0 | 0.06 | 3.3 | 0.635 / 0.271 |
+| E: M3 at 10 % data, t=1 | 1.27 | 0.81 | 2.6 | 0.96 | 1.09 | 0.580 / 0.210 |
+| E: M2 at 10 % data, t=1 | 1.69 | 1.56 | 24.8 | 0.06 | 4.4 | 0.572 / 0.240 |
+
+* **(B) Every geometric signature of M3 is reproduced without FM** by adding the explicit latent target `‖z₁ − W a‖²`:
+  collapse to rank 2 (even more complete than M3), `frac_x_in_W = 1`, z-scored nuisance ratio 0.38 (M3: 0.91), and
+  equal or higher probe R² (0.763 / 0.341 vs 0.755 / 0.322). The direct-regression version (`M1 + emb`) does the same
+  with a single forward pass (erank 2.25, R 0.55, probe 0.770). The FM loss is thus an *implicit* version of this
+  constraint (its target `u = W a − z₀` points every sample at `W a`), not a mechanism of its own.
+* **(B) FM alone is harmful for the representation**: the endpoint lands in `span(W)` (frac 1.0) and the ratio is low (0.59),
+  but the content is wrong — probe R² on unseen backgrounds is 0.008 and action-level `cf_consistency` is 0.77 (worst
+  of all models). Without the endpoint loss the straight-line target is fitted on training nuisance and does not
+  transfer. Low nuisance ratios in a 2-D plane are therefore no evidence of a control-oriented representation.
+* **(F) OT re-pairing** leaves the geometry unchanged (R 0.93, erank 3.4, probe 0.756 / 0.293).
+* **(A) A 1-step FM model** collapses less (erank 3.9) and is less decodable OOD (0.209) despite its slightly better OOD
+  action error — the two metrics disagree at the ≈ 1–2 σ level.
+* **(C) The projector dominates the geometry**: with an MLP projector M2's endpoint also drops to erank 5.6 and R 0.74
+  while M2 keeps `frac_x_in_W` ≈ 0.2, and the M2/M3 gap in every metric shrinks to noise.
+* **(D, E) With DINOv2 or 10 % data the M3 collapse is partial** (erank 8.6 / 2.6) and the ratio stays ≥ 1.27; M3's
+  z-scored R is *not* lower than M2's on DINOv2 (1.44 vs 1.41) and lower only via collapse at 10 % data (1.27 vs 1.69,
+  erank 2.6 vs 24.8). M3's low-data action advantage (02 §4-E) does not come with a decodability advantage
+  (probe 0.580 vs 0.572 ID; 0.210 vs 0.240 ood_bg).
+
+Taken together with §1–§5, the ablations locate the FM-specific contribution entirely in (i) the straightness /
+step-robustness of the velocity field and (ii) a modest sample-efficiency gain at ≈ 1 000 training states; all
+representation-level observations are reproduced by endpoint supervision plus an explicit embedding target.
 
 ## 7. Caveats and recorded anomalies
 
@@ -203,8 +245,12 @@ On a controlled synthetic reaching task with frozen DINOv3 features, parameter-m
 cross-modal Flow Matching **does not act as a distinctive mechanism for learning control-oriented or nuisance-robust visual
 representations**. Its endpoint is as accurate and as linearly decodable as that of direct regression (when the latter
 converges) and marginally (≈ 5 %) better than endpoint-only ODE training; its nuisance ratio is not lower at matched rank;
-its local sensitivity ratio is identical; and nothing FM-specific transfers to unseen backgrounds. What FM demonstrably
-adds is (a) a near-straight, integration-step-robust velocity field, (b) confinement of the final state to the 2-D action
-plane, and (c) better seed-stability than the regression head at its selected LR. The outcome is **negative** in the
-sense of the plan's §11 ("properly matched regression or endpoint ODE achieves equivalent results"), with the
-step-robustness result as the one clearly positive, FM-specific finding.
+its local sensitivity ratio is identical; nothing FM-specific transfers to unseen backgrounds; and every geometric
+signature it produces (collapse onto the action plane, lower nuisance ratio, decodability) is reproduced or exceeded by a
+flow-free head trained with the explicit latent target `‖z₁ − W a‖²` — which is also the best fair model in the study
+(0.099 ID). What FM demonstrably adds is (a) a near-straight, integration-step-robust velocity field (no non-FM variant has
+it, every FM variant does), (b) a modest sample-efficiency gain at ≈ 1 000 training states (≈ 6 % over the best non-FM
+variant, ≈ 2 σ), and (c) better seed-stability than the regression head at its selected LR. The outcome is **negative**
+in the sense of the plan's §11 ("properly matched regression or endpoint ODE achieves equivalent results"), with the
+step-robustness result as the one clearly positive, FM-specific finding. Under this evidence, the PushT extension (P6)
+is not warranted: there is no synthetic representation effect whose transfer to a real policy could be tested.

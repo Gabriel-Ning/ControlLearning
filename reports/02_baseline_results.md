@@ -135,7 +135,109 @@ straight), not a better endpoint. Train-time step-count variations (n_steps ∈ 
 
 ## 4. Ablations (A–F)
 
-_See the end of this file — filled from `reports/tables/table_ablations_action.md` after the ablation suite finished._
+Full table: `reports/tables/table_ablations_action.md` (3 seeds each, same selection protocol; `n_seeds = 3` everywhere).
+`[…]` marks the deviation from the main configuration. No run produced non-finite losses.
+
+### A — ODE step count at train time (M2/M3 trained with n ∈ {1, 4, 16}; evaluated at their own n)
+
+| experiment | id_test | ood_bg | geo_ood |
+|---|---|---|---|
+| M2 n=1 (≡ M1 at lr 3e-3, see note) | 0.1110 ± 0.0061 | 0.3135 ± 0.0419 | 0.2578 ± 0.0296 |
+| M2 n=4 | 0.1119 ± 0.0011 | 0.2812 ± 0.0290 | 0.2606 ± 0.0383 |
+| M2 n=8 (main) | 0.1091 ± 0.0021 | 0.2869 ± 0.0208 | 0.2756 ± 0.0145 |
+| M2 n=16 | 0.1123 ± 0.0026 | 0.2700 ± 0.0233 | 0.2609 ± 0.0062 |
+| M3 n=1 | 0.1144 ± 0.0058 | **0.2599 ± 0.0152** | 0.2476 ± 0.0131 |
+| M3 n=4 | 0.1044 ± 0.0007 | 0.3013 ± 0.0254 | 0.2612 ± 0.0084 |
+| M3 n=8 (main) | 0.1035 ± 0.0001 | 0.2801 ± 0.0103 | 0.2519 ± 0.0126 |
+| M3 n=16 | 0.1035 ± 0.0017 | 0.2895 ± 0.0344 | 0.2493 ± 0.0128 |
+
+Train-time step count is irrelevant for M2 (0.109–0.112) and for M3 once n ≥ 4 (0.1035–0.1044). M3 with a single step
+(a one-shot regression `z₀ + v(z₀, 0)` regularised by the FM loss) is 10 % worse ID but the best M3 variant on unseen
+backgrounds (0.260; differences ≈ 1–2 σ). Evaluation-step robustness (table `table_step_sweep.md`) holds for every M3
+variant and for no M2 variant: e.g. M2 trained with 16 steps gives MSE 12.7 at 1 step; M3 trained with 1 step evaluated
+with 16 steps gives 0.134. *Note:* with the residual parametrisation `z₁ = z₀ + f(z₀, 0)` the M1 model is **exactly** M2
+with n = 1; the `m1_lr3e-3_*` and `m2_*_nsteps1` runs reproduce each other bit-for-bit, which also serves as a
+determinism check of the pipeline.
+
+### B — Loss decomposition on the shared architecture
+
+| experiment | id_test | ood_bg | geo_ood | cf_consistency | 1-step eval MSE |
+|---|---|---|---|---|---|
+| M3 = FM + endpoint (main) | 0.1035 ± 0.0001 | 0.2801 ± 0.0103 | 0.2519 ± 0.0126 | 0.512 ± 0.036 | 0.111 |
+| FM only (no endpoint loss; `â = Wᵀz₁`) | 0.1220 ± 0.0029 | **0.3895 ± 0.0079** | 0.2567 ± 0.0087 | **0.770 ± 0.053** | 0.118 |
+| endpoint ODE + `‖z₁ − W a‖²` (no FM) | **0.1005 ± 0.0021** | **0.2647 ± 0.0403** | 0.2509 ± 0.0021 | 0.486 ± 0.058 | 3.07 |
+| M1 + `‖z₁ − W a‖²` (direct regression) | **0.0992 ± 0.0018** | 0.2969 ± 0.0161 | **0.2322 ± 0.0206** | 0.530 ± 0.024 | n/a |
+| M2 (endpoint only) | 0.1091 ± 0.0021 | 0.2869 ± 0.0208 | 0.2756 ± 0.0145 | 0.514 ± 0.055 | 4.59 |
+| M1 (direct regression, lr 1e-2 / 3e-3) | 0.1239 ± 0.0352 / 0.1110 ± 0.0061 | 0.295 / 0.314 | 0.272 / 0.258 | 0.50 / 0.54 | n/a |
+
+* **The FM loss alone is a poor action learner** (0.122 ID, 0.39 on unseen backgrounds — the frozen-ridge level — and
+  the least nuisance-consistent predictions of any model), although it is perfectly step-robust.
+* **Replacing FM by an explicit embedding target `‖z₁ − W a‖²` reproduces or beats M3** on the shared ODE architecture
+  (0.1005 vs 0.1035 ID; 0.265 vs 0.280 ood_bg) and on the plain regression head (0.0992 ID, 0.232 geo — the best fair
+  model in the study). It also removes M1's LR instability (all 3 seeds within 0.002). What it does **not** reproduce is
+  integration-step robustness (3.07 at 1 step), which is therefore the only property specific to the FM loss.
+* Interpretation: the FM target `u = W a − z₀` implicitly asks the whole 64-d endpoint to sit at the point `W a`, not just
+  `Wᵀz₁ = a`. That extra constraint (zeroing the 62 directions orthogonal to the action plane) is a useful regulariser
+  for the latent and explains the small M3 > M2 gap; it is available without any flow.
+
+### C — Projector capacity (M2 vs M3, DINOv3)
+
+| projector | M2 | M3 |
+|---|---|---|
+| linear (main) | 0.1091 ± 0.0021 / 0.2869 / 0.2756 | 0.1035 ± 0.0001 / 0.2801 / 0.2519 |
+| frozen random (no trainable projector) | 0.2422 ± 0.0135 / 0.3528 / 0.4801 | 0.2527 ± 0.0089 / 0.4217 / 0.4539 |
+| 2-layer MLP | 0.1149 ± 0.0010 / 0.2951 / 0.2570 | 0.1144 ± 0.0014 / 0.3188 / 0.2637 |
+
+(id / ood_bg / geo.) With a frozen random projection both models lose most of their accuracy (0.24–0.25 ID — worse than
+ridge on the full 384-d feature, 0.164, because the random 384 → 64 projection discards information) and M3 is **not**
+better than M2; with an MLP projector the two are identical (0.1149 vs 0.1144) and both slightly worse than linear
+(more over-fitting). The M3 > M2 margin exists only for the linear projector.
+
+### D — Backbone: DINOv2 ViT-S/14 instead of DINOv3 ViT-S/16
+
+| model | id_test | ood_bg | geo_ood |
+|---|---|---|---|
+| M0 ridge (DINOv2 CLS) | 0.1922 | 0.3112 | 0.3645 |
+| M1 | **0.1470 ± 0.0041** | 0.2974 ± 0.0182 | **0.3031 ± 0.0024** |
+| M2 | 0.1588 ± 0.0018 | 0.2959 ± 0.0188 | 0.3499 ± 0.0270 |
+| M3 | 0.1549 ± 0.0034 | **0.2851 ± 0.0043** | 0.3340 ± 0.0416 |
+
+DINOv2 features are worse for this task (ridge 0.192 vs 0.164) and the **ranking changes**: direct regression is best ID
+and on geo_ood, M3 is best on unseen backgrounds by ≈ 1 σ. The ID ordering M3 < M2 < M1 seen with DINOv3 is thus
+backbone-dependent, not a property of the FM objective.
+
+### E — Training-set size (fraction of the 10 000 training states)
+
+| model | 100 states (1 %) | 1 000 states (10 %) | 10 000 (100 %) |
+|---|---|---|---|
+| M1 | 0.4221 ± 0.0196 / 0.643 | 0.2016 ± 0.0077 / 0.395 | 0.1239 ± 0.0352 / 0.295 |
+| M2 | 0.3845 ± 0.0336 / 0.519 | 0.2006 ± 0.0066 / 0.354 | 0.1091 ± 0.0021 / 0.287 |
+| M3 | **0.3527 ± 0.0067** / 0.465 | **0.1792 ± 0.0061** / 0.342 | 0.1035 ± 0.0001 / 0.280 |
+| M1 + emb (follow-up) | 0.4728 ± 0.0360 / 0.787 | 0.1902 ± 0.0008 / 0.449 | 0.0992 ± 0.0018 / 0.297 |
+| endpoint + emb (follow-up) | 0.3524 ± 0.0047 / 0.415 | 0.2002 ± 0.0075 / **0.296** | 0.1005 ± 0.0021 / 0.265 |
+
+(id / ood_bg; chance ≈ 0.42.) **The low-data regime is where FM helps most**: at 1 000 states M3 is 11 % better than
+M1/M2 (consistent across seeds, ≈ 3 σ) and at 100 states 8–16 % better (all models are near chance ID). The follow-up
+runs show this is only *partly* explained by the embedding target: `endpoint + emb` ties M3 at 100 states (0.352 vs
+0.353) and is better on unseen backgrounds at 1 000 states (0.296 vs 0.342), but at 1 000 states M3 remains 6 % ahead of
+the best non-FM variant ID (0.179 vs 0.190, ≈ 2 σ). `M1 + emb` degrades sharply at 100 states (0.47, worse than chance).
+
+### F — Minibatch OT re-pairing (VITA's `ExactOptimalTransportConditionalFlowMatcher`) in M3
+
+| pairing | id_test | ood_bg | geo_ood | 1-step | 16-step |
+|---|---|---|---|---|---|
+| paired (main M3) | 0.1035 ± 0.0001 | 0.2801 ± 0.0103 | 0.2519 ± 0.0126 | 0.111 | 0.103 |
+| OT re-pairing | 0.1019 ± 0.0018 | 0.2894 ± 0.0163 | 0.2455 ± 0.0037 | 0.228 | 0.108 |
+
+No accuracy difference (all within 1 σ). OT re-pairing destroys the step robustness (1 step: 0.228 vs 0.111) and makes
+16 steps *worse* than 8, i.e. the field trained on re-paired targets is less straight per sample. In the upstream audit
+(`00_repo_audit.md`) OT re-pairing moved ≈ 88 % of the plan mass off the diagonal; here it buys nothing.
+
+### LR robustness check for M1
+
+`m1_lr3e-3` (M2/M3's LR): 0.1110 ± 0.0061 ID, 0.3135 ± 0.0419 ood_bg, 0.2578 ± 0.0296 geo — all three seeds converge
+(max 0.118). At a common LR the fair ordering ID is M3 0.1035 < M2 0.1091 < M1 0.1110 (7 % spread), and on ood_bg /
+geo_ood the three overlap within 1 σ.
 
 ## 5. Summary for Q1 (action prediction part)
 
@@ -145,5 +247,10 @@ _See the end of this file — filled from `reports/tables/table_ablations_action
 * M3 is far more **seed-stable** than M1 at their respective selected LRs (std 0.0001 vs 0.035) and far more
   **integration-step robust** than M2.
 * The dominant failure mode (unseen backgrounds, geometric extrapolation) is shared by all heads and is not mitigated by FM;
-  even the privileged M4 improves OOD only modestly. Linear decodability and nuisance geometry are addressed in
-  `03_mechanism_analysis.md`.
+  even the privileged M4 improves OOD only modestly.
+* Ablations: the small M3 > M2 / M1 margin is reproduced or exceeded by adding the explicit latent target `‖z₁ − W a‖²`
+  without any flow (B), disappears with an MLP or frozen projector (C) and reverses with DINOv2 features (D). The only
+  regime with a consistent FM advantage not fully matched by the non-FM variants is the 1 000-state low-data setting
+  (E, ≈ 6 % over the best non-FM model, ≈ 2 σ). OT re-pairing (F) brings nothing. Integration-step robustness is the one
+  property that every FM variant has and no non-FM variant has.
+* Linear decodability and nuisance geometry are addressed in `03_mechanism_analysis.md`.

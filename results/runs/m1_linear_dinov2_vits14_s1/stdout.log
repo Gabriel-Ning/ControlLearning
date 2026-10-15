@@ -1,0 +1,30 @@
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+[m1_linear_dinov2_vits14_s1] step     0 loss 3.2506 action=3.2506 emb=128.5773 | val mse 1.0539 ang 94.24 | 0s
+[m1_linear_dinov2_vits14_s1] step   250 loss 1.3834 action=1.3834 emb=267.7983 | val mse 1.0760 ang 73.60 | 3s
+[m1_linear_dinov2_vits14_s1] step   500 loss 2.4141 action=2.4141 emb=388.6437 | val mse 0.9882 ang 72.69 | 5s
+[m1_linear_dinov2_vits14_s1] step   750 loss 1.1761 action=1.1761 emb=355.1040 | val mse 0.5271 ang 70.18 | 7s
+[m1_linear_dinov2_vits14_s1] step  1000 loss 1.2951 action=1.2951 emb=402.5569 | val mse 0.5312 ang 66.29 | 10s
+[m1_linear_dinov2_vits14_s1] step  1250 loss 1.1158 action=1.1158 emb=384.9253 | val mse 0.4322 ang 57.61 | 12s
+[m1_linear_dinov2_vits14_s1] step  1500 loss 0.8938 action=0.8938 emb=328.3786 | val mse 0.3590 ang 54.93 | 15s
+[m1_linear_dinov2_vits14_s1] step  1750 loss 0.9282 action=0.9282 emb=301.6311 | val mse 0.3241 ang 51.47 | 18s
+[m1_linear_dinov2_vits14_s1] step  2000 loss 0.7553 action=0.7553 emb=255.3384 | val mse 0.3114 ang 51.96 | 21s
+[m1_linear_dinov2_vits14_s1] step  2250 loss 0.8111 action=0.8111 emb=219.3628 | val mse 0.3032 ang 48.71 | 24s
+[m1_linear_dinov2_vits14_s1] step  2500 loss 1.0636 action=1.0636 emb=189.0218 | val mse 0.5397 ang 59.38 | 26s
+[m1_linear_dinov2_vits14_s1] step  2750 loss 0.5906 action=0.5906 emb=562.7592 | val mse 0.3342 ang 51.76 | 29s
+[m1_linear_dinov2_vits14_s1] step  3000 loss 0.6868 action=0.6868 emb=414.0253 | val mse 0.2820 ang 48.67 | 32s
+[m1_linear_dinov2_vits14_s1] step  3250 loss 0.7632 action=0.7632 emb=234.7190 | val mse 0.3653 ang 55.66 | 35s
+[m1_linear_dinov2_vits14_s1] step  3500 loss 0.5756 action=0.5756 emb=302.8688 | val mse 0.2403 ang 42.80 | 36s
+[m1_linear_dinov2_vits14_s1] step  3750 loss 0.6300 action=0.6300 emb=239.7681 | val mse 0.2499 ang 44.98 | 38s
+[m1_linear_dinov2_vits14_s1] step  4000 loss 0.4643 action=0.4643 emb=180.3504 | val mse 0.1910 ang 39.18 | 39s
+[m1_linear_dinov2_vits14_s1] step  4250 loss 0.4358 action=0.4358 emb=200.7701 | val mse 0.1974 ang 39.52 | 42s
+[m1_linear_dinov2_vits14_s1] step  4500 loss 0.4311 action=0.4311 emb=196.1230 | val mse 0.1804 ang 37.39 | 44s
+[m1_linear_dinov2_vits14_s1] step  4750 loss 0.3749 action=0.3749 emb=192.2393 | val mse 0.1664 ang 36.43 | 47s
+[m1_linear_dinov2_vits14_s1] step  5000 loss 0.3441 action=0.3441 emb=183.3127 | val mse 0.1659 ang 36.46 | 49s
+[m1_linear_dinov2_vits14_s1] step  5250 loss 0.3266 action=0.3266 emb=179.6499 | val mse 0.1588 ang 35.23 | 52s
+[m1_linear_dinov2_vits14_s1] step  5500 loss 0.3229 action=0.3229 emb=179.1465 | val mse 0.1565 ang 35.05 | 54s
+[m1_linear_dinov2_vits14_s1] step  5750 loss 0.2568 action=0.2568 emb=177.9451 | val mse 0.1553 ang 34.85 | 57s
+[m1_linear_dinov2_vits14_s1] step  5999 loss 0.2904 action=0.2904 emb=176.4173 | val mse 0.1554 ang 34.88 | 59s
+done m1_linear_dinov2_vits14_s1: best val mse 0.15534 @ 5750, params 2752640, 59s

@@ -1,0 +1,30 @@
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+[m1_linear_dinov3_vits16_s2_frac0.1] step     0 loss 6.0430 action=6.0430 emb=191.7376 | val mse 2.1427 ang 102.35 | 0s
+[m1_linear_dinov3_vits16_s2_frac0.1] step   250 loss 0.9764 action=0.9764 emb=276.7172 | val mse 0.5672 ang 60.65 | 3s
+[m1_linear_dinov3_vits16_s2_frac0.1] step   500 loss 0.5203 action=0.5203 emb=331.0733 | val mse 1.9264 ang 84.05 | 6s
+[m1_linear_dinov3_vits16_s2_frac0.1] step   750 loss 0.4590 action=0.4590 emb=625.8513 | val mse 0.4637 ang 57.72 | 8s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  1000 loss 0.4019 action=0.4019 emb=606.7412 | val mse 0.2099 ang 40.53 | 11s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  1250 loss 0.2012 action=0.2012 emb=552.5127 | val mse 0.2128 ang 39.47 | 13s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  1500 loss 0.1380 action=0.1380 emb=491.7630 | val mse 0.2153 ang 40.07 | 15s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  1750 loss 0.0478 action=0.0478 emb=434.8538 | val mse 0.2184 ang 38.79 | 18s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  2000 loss 0.0111 action=0.0111 emb=404.1749 | val mse 0.2269 ang 39.80 | 20s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  2250 loss 0.0015 action=0.0015 emb=408.3520 | val mse 0.2342 ang 40.33 | 22s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  2500 loss 0.0002 action=0.0002 emb=397.3468 | val mse 0.2357 ang 40.62 | 25s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  2750 loss 0.0000 action=0.0000 emb=396.4324 | val mse 0.2361 ang 40.64 | 27s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  3000 loss 0.0000 action=0.0000 emb=397.0555 | val mse 0.2363 ang 40.70 | 29s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  3250 loss 0.0000 action=0.0000 emb=407.7450 | val mse 0.2363 ang 40.69 | 32s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  3500 loss 0.0000 action=0.0000 emb=411.3979 | val mse 0.2363 ang 40.70 | 34s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  3750 loss 0.0000 action=0.0000 emb=406.3318 | val mse 0.2363 ang 40.69 | 36s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  4000 loss 0.0000 action=0.0000 emb=406.7590 | val mse 0.2363 ang 40.69 | 37s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  4250 loss 0.0000 action=0.0000 emb=404.0027 | val mse 0.2363 ang 40.69 | 39s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  4500 loss 0.0000 action=0.0000 emb=414.5172 | val mse 0.2363 ang 40.69 | 41s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  4750 loss 0.0000 action=0.0000 emb=410.8175 | val mse 0.2363 ang 40.69 | 43s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  5000 loss 0.0000 action=0.0000 emb=398.3690 | val mse 0.2363 ang 40.69 | 45s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  5250 loss 0.0000 action=0.0000 emb=411.4130 | val mse 0.2363 ang 40.69 | 47s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  5500 loss 0.0000 action=0.0000 emb=411.0572 | val mse 0.2363 ang 40.69 | 50s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  5750 loss 0.0000 action=0.0000 emb=416.6221 | val mse 0.2363 ang 40.69 | 52s
+[m1_linear_dinov3_vits16_s2_frac0.1] step  5999 loss 0.0000 action=0.0000 emb=406.5121 | val mse 0.2363 ang 40.69 | 55s
+done m1_linear_dinov3_vits16_s2_frac0.1: best val mse 0.20995 @ 1000, params 2752640, 55s

@@ -1,0 +1,30 @@
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/gn/Projects/ControlLearning/.venv/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+[m2_frozen_random_dinov3_vits16_s2] step     0 loss 4.2529 action=4.2529 emb=175.9547 | val mse 1.6269 ang 102.41 | 0s
+[m2_frozen_random_dinov3_vits16_s2] step   250 loss 0.6568 action=0.6568 emb=102.0894 | val mse 0.2759 ang 49.54 | 8s
+[m2_frozen_random_dinov3_vits16_s2] step   500 loss 0.3975 action=0.3975 emb=42.6842 | val mse 0.2474 ang 45.00 | 16s
+[m2_frozen_random_dinov3_vits16_s2] step   750 loss 0.3521 action=0.3521 emb=31.6750 | val mse 0.2390 ang 44.21 | 23s
+[m2_frozen_random_dinov3_vits16_s2] step  1000 loss 0.2001 action=0.2001 emb=26.0704 | val mse 0.2624 ang 45.41 | 31s
+[m2_frozen_random_dinov3_vits16_s2] step  1250 loss 0.0770 action=0.0770 emb=24.3234 | val mse 0.2619 ang 45.79 | 38s
+[m2_frozen_random_dinov3_vits16_s2] step  1500 loss 0.0216 action=0.0216 emb=24.5449 | val mse 0.2563 ang 45.09 | 45s
+[m2_frozen_random_dinov3_vits16_s2] step  1750 loss 0.0051 action=0.0051 emb=23.1564 | val mse 0.2566 ang 45.58 | 53s
+[m2_frozen_random_dinov3_vits16_s2] step  2000 loss 0.0016 action=0.0016 emb=22.9999 | val mse 0.2534 ang 45.28 | 60s
+[m2_frozen_random_dinov3_vits16_s2] step  2250 loss 0.0015 action=0.0015 emb=23.1930 | val mse 0.2527 ang 45.17 | 68s
+[m2_frozen_random_dinov3_vits16_s2] step  2500 loss 0.0008 action=0.0008 emb=23.5139 | val mse 0.2531 ang 45.45 | 75s
+[m2_frozen_random_dinov3_vits16_s2] step  2750 loss 0.0006 action=0.0006 emb=23.2930 | val mse 0.2528 ang 45.16 | 82s
+[m2_frozen_random_dinov3_vits16_s2] step  3000 loss 0.0007 action=0.0007 emb=23.6680 | val mse 0.2525 ang 45.28 | 90s
+[m2_frozen_random_dinov3_vits16_s2] step  3250 loss 0.0007 action=0.0007 emb=22.9016 | val mse 0.2521 ang 45.23 | 98s
+[m2_frozen_random_dinov3_vits16_s2] step  3500 loss 0.0002 action=0.0002 emb=23.1272 | val mse 0.2525 ang 45.22 | 106s
+[m2_frozen_random_dinov3_vits16_s2] step  3750 loss 0.0001 action=0.0001 emb=23.1710 | val mse 0.2523 ang 45.20 | 114s
+[m2_frozen_random_dinov3_vits16_s2] step  4000 loss 0.0000 action=0.0000 emb=23.0388 | val mse 0.2525 ang 45.25 | 122s
+[m2_frozen_random_dinov3_vits16_s2] step  4250 loss 0.0000 action=0.0000 emb=22.9108 | val mse 0.2525 ang 45.24 | 129s
+[m2_frozen_random_dinov3_vits16_s2] step  4500 loss 0.0000 action=0.0000 emb=23.3128 | val mse 0.2525 ang 45.23 | 137s
+[m2_frozen_random_dinov3_vits16_s2] step  4750 loss 0.0000 action=0.0000 emb=22.8347 | val mse 0.2525 ang 45.23 | 145s
+[m2_frozen_random_dinov3_vits16_s2] step  5000 loss 0.0000 action=0.0000 emb=23.1299 | val mse 0.2525 ang 45.23 | 152s
+[m2_frozen_random_dinov3_vits16_s2] step  5250 loss 0.0000 action=0.0000 emb=23.4532 | val mse 0.2525 ang 45.23 | 159s
+[m2_frozen_random_dinov3_vits16_s2] step  5500 loss 0.0000 action=0.0000 emb=22.8556 | val mse 0.2525 ang 45.23 | 167s
+[m2_frozen_random_dinov3_vits16_s2] step  5750 loss 0.0000 action=0.0000 emb=23.2383 | val mse 0.2525 ang 45.23 | 175s
+[m2_frozen_random_dinov3_vits16_s2] step  5999 loss 0.0000 action=0.0000 emb=22.7268 | val mse 0.2525 ang 45.23 | 183s
+done m2_frozen_random_dinov3_vits16_s2: best val mse 0.23896 @ 750, params 2728000, 183s

@@ -23,3 +23,8 @@
 [m3_linear_dinov3_vits16_s0_frac0.1] step  4500 loss 0.0006 fm=0.0006 pair_frac_diag=1.0000 action=0.0000 emb=0.0036 | val mse 0.1849 ang 37.48 | 148s
 [m3_linear_dinov3_vits16_s0_frac0.1] step  4750 loss 0.0007 fm=0.0007 pair_frac_diag=1.0000 action=0.0000 emb=0.0030 | val mse 0.1852 ang 37.54 | 158s
 [m3_linear_dinov3_vits16_s0_frac0.1] step  5000 loss 0.0006 fm=0.0006 pair_frac_diag=1.0000 action=0.0000 emb=0.0028 | val mse 0.1853 ang 37.56 | 165s
+[m3_linear_dinov3_vits16_s0_frac0.1] step  5250 loss 0.0003 fm=0.0003 pair_frac_diag=1.0000 action=0.0000 emb=0.0027 | val mse 0.1854 ang 37.56 | 173s
+[m3_linear_dinov3_vits16_s0_frac0.1] step  5500 loss 0.0002 fm=0.0002 pair_frac_diag=1.0000 action=0.0000 emb=0.0026 | val mse 0.1854 ang 37.55 | 180s
+[m3_linear_dinov3_vits16_s0_frac0.1] step  5750 loss 0.0003 fm=0.0003 pair_frac_diag=1.0000 action=0.0000 emb=0.0025 | val mse 0.1854 ang 37.55 | 188s
+[m3_linear_dinov3_vits16_s0_frac0.1] step  5999 loss 0.0002 fm=0.0002 pair_frac_diag=1.0000 action=0.0000 emb=0.0024 | val mse 0.1854 ang 37.55 | 196s
+done m3_linear_dinov3_vits16_s0_frac0.1: best val mse 0.18457 @ 3250, params 2752640, 196s

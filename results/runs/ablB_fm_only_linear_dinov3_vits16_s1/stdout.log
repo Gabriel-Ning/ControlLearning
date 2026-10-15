@@ -8,3 +8,23 @@
 [ablB_fm_only_linear_dinov3_vits16_s1] step   750 loss 0.0055 fm=0.0055 pair_frac_diag=1.0000 | val mse 0.1746 ang 36.89 | 5s
 [ablB_fm_only_linear_dinov3_vits16_s1] step  1000 loss 0.0033 fm=0.0033 pair_frac_diag=1.0000 | val mse 0.3604 ang 55.08 | 8s
 [ablB_fm_only_linear_dinov3_vits16_s1] step  1250 loss 0.0052 fm=0.0052 pair_frac_diag=1.0000 | val mse 0.2585 ang 41.33 | 10s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  1500 loss 0.0039 fm=0.0039 pair_frac_diag=1.0000 | val mse 0.1661 ang 34.27 | 12s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  1750 loss 0.0042 fm=0.0042 pair_frac_diag=1.0000 | val mse 0.1857 ang 36.90 | 15s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  2000 loss 0.0024 fm=0.0024 pair_frac_diag=1.0000 | val mse 0.1793 ang 35.42 | 17s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  2250 loss 0.0022 fm=0.0022 pair_frac_diag=1.0000 | val mse 0.2045 ang 35.04 | 19s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  2500 loss 0.0030 fm=0.0030 pair_frac_diag=1.0000 | val mse 0.1533 ang 31.54 | 21s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  2750 loss 0.0022 fm=0.0022 pair_frac_diag=1.0000 | val mse 0.1301 ang 29.76 | 23s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  3000 loss 0.0020 fm=0.0020 pair_frac_diag=1.0000 | val mse 0.1469 ang 30.51 | 26s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  3250 loss 0.0012 fm=0.0012 pair_frac_diag=1.0000 | val mse 0.1436 ang 30.98 | 28s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  3500 loss 0.0015 fm=0.0015 pair_frac_diag=1.0000 | val mse 0.1704 ang 33.14 | 30s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  3750 loss 0.0010 fm=0.0010 pair_frac_diag=1.0000 | val mse 0.2112 ang 35.06 | 33s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  4000 loss 0.0009 fm=0.0009 pair_frac_diag=1.0000 | val mse 0.1367 ang 29.63 | 35s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  4250 loss 0.0008 fm=0.0008 pair_frac_diag=1.0000 | val mse 0.1326 ang 29.49 | 37s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  4500 loss 0.0006 fm=0.0006 pair_frac_diag=1.0000 | val mse 0.1250 ang 27.80 | 39s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  4750 loss 0.0005 fm=0.0005 pair_frac_diag=1.0000 | val mse 0.1470 ang 30.89 | 41s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  5000 loss 0.0003 fm=0.0003 pair_frac_diag=1.0000 | val mse 0.1301 ang 28.62 | 43s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  5250 loss 0.0002 fm=0.0002 pair_frac_diag=1.0000 | val mse 0.1263 ang 27.67 | 44s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  5500 loss 0.0002 fm=0.0002 pair_frac_diag=1.0000 | val mse 0.1268 ang 27.92 | 46s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  5750 loss 0.0002 fm=0.0002 pair_frac_diag=1.0000 | val mse 0.1252 ang 27.84 | 47s
+[ablB_fm_only_linear_dinov3_vits16_s1] step  5999 loss 0.0003 fm=0.0003 pair_frac_diag=1.0000 | val mse 0.1254 ang 27.70 | 49s
+done ablB_fm_only_linear_dinov3_vits16_s1: best val mse 0.12500 @ 4500, params 2752640, 49s

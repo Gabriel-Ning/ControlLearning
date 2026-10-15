@@ -77,7 +77,20 @@ def suite_ode_steps():
     return jobs
 
 
-SUITES = {"lr_sweep": suite_lr_sweep, "main": suite_main, "ablations": suite_ablations, "ode_steps": suite_ode_steps}
+def suite_lowdata_B():
+    """Follow-up to ablation E: does the explicit embedding target also explain M3's low-data advantage?"""
+    lrs = best_lr_table()
+    lr2, lr1 = lrs.get("m2", "1e-3"), lrs.get("m1", "1e-3")
+    jobs = []
+    for s in SEEDS:
+        for frac in ("0.01", "0.1"):
+            jobs += [("ablB_m1_emb", [f"optim.lr={lr1}", f"seed={s}", f"train_fraction={frac}"]),
+                     ("ablB_endpoint_emb", [f"optim.lr={lr2}", f"seed={s}", f"train_fraction={frac}"])]
+    return jobs
+
+
+SUITES = {"lr_sweep": suite_lr_sweep, "main": suite_main, "ablations": suite_ablations, "ode_steps": suite_ode_steps,
+          "lowdata_B": suite_lowdata_B}
 
 
 def run_job(job):

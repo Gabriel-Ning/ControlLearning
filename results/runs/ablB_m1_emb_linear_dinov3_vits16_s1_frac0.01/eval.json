@@ -1,0 +1,110 @@
+{
+  "run": "ablB_m1_emb_linear_dinov3_vits16_s1_frac0.01",
+  "kind": "m1",
+  "best_step": 250,
+  "train_n_steps": 8,
+  "splits": {
+    "val": {
+      "mse": 0.42609459161758423,
+      "rmse": 0.6527592141192525,
+      "angular_err_deg": 60.52635955810547,
+      "angular_n": 1961,
+      "r2": -0.008394181728363037,
+      "nmse": 1.0052868155416956,
+      "finite": true
+    },
+    "id_test": {
+      "mse": 0.431245893239975,
+      "rmse": 0.6566931499870963,
+      "angular_err_deg": 59.052452087402344,
+      "angular_n": 1967,
+      "r2": -0.02281057834625244,
+      "nmse": 1.0127989463101212,
+      "finite": true
+    },
+    "ood_bg": {
+      "mse": 0.6764087080955505,
+      "rmse": 0.8224407018719043,
+      "angular_err_deg": 67.17841339111328,
+      "angular_n": 1962,
+      "r2": -0.6407117247581482,
+      "nmse": 1.648334178442305,
+      "finite": true
+    },
+    "geo_ood": {
+      "mse": 0.7618775367736816,
+      "rmse": 0.8728559656516541,
+      "angular_err_deg": 86.26268005371094,
+      "angular_n": 1964,
+      "r2": -2.259150981903076,
+      "nmse": 3.2644458011204818,
+      "finite": true
+    },
+    "cf_test_v0": {
+      "mse": 0.444780558347702,
+      "rmse": 0.666918704451826,
+      "angular_err_deg": 60.54985809326172,
+      "angular_n": 1965,
+      "r2": -0.06697085499763489,
+      "nmse": 1.0605741402630573,
+      "finite": true
+    },
+    "cf_test_v1": {
+      "mse": 0.4474538564682007,
+      "rmse": 0.6689199178288838,
+      "angular_err_deg": 60.35214614868164,
+      "angular_n": 1965,
+      "r2": -0.07284533977508545,
+      "nmse": 1.0669485889717583,
+      "finite": true
+    },
+    "cf_test_v2": {
+      "mse": 0.6379459500312805,
+      "rmse": 0.7987151870543595,
+      "angular_err_deg": 65.26192474365234,
+      "angular_n": 1965,
+      "r2": -0.5343718528747559,
+      "nmse": 1.5211748013495885,
+      "finite": true
+    },
+    "cf_test_v3": {
+      "mse": 0.6768056154251099,
+      "rmse": 0.8226819649324457,
+      "angular_err_deg": 67.90699768066406,
+      "angular_n": 1965,
+      "r2": -0.6275330185890198,
+      "nmse": 1.6138352278058916,
+      "finite": true
+    },
+    "sp_test_v0": {
+      "mse": 0.44607722759246826,
+      "rmse": 0.6678901313782591,
+      "angular_err_deg": 60.183982849121094,
+      "angular_n": 1933,
+      "r2": -0.048702359199523926,
+      "nmse": 1.0431342026821078,
+      "finite": true
+    },
+    "sp_test_v1": {
+      "mse": 0.4278745651245117,
+      "rmse": 0.6541212159260023,
+      "angular_err_deg": 59.0562744140625,
+      "angular_n": 1965,
+      "r2": -0.013307303190231323,
+      "nmse": 1.010847267452768,
+      "finite": true
+    }
+  },
+  "step_sweep": {},
+  "cf_action_consistency": {
+    "all_pairs": 1.1410417258739471,
+    "seen_seen": 0.7838745713233948,
+    "unseen_unseen": 1.3141281604766846,
+    "seen_unseen": 1.1870619058609009
+  },
+  "id_to_ood_degradation": {
+    "ood_bg": 0.24516281485557556,
+    "geo_ood": 0.33063164353370667
+  },
+  "representations": "/home/gn/Projects/ControlLearning/results/representations/ablB_m1_emb_linear_dinov3_vits16_s1_frac0.01"
+}

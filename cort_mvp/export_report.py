@@ -294,11 +294,14 @@ def fig_step_sweep(df: pd.DataFrame):
     d["eval_split"] = d.split.str.split("@").str[0]; d["steps"] = d.split.str.extract(r"steps(\d+)").astype(int)
     fig, axes = plt.subplots(1, 3, figsize=(15, 4))
     for ax, sp in zip(axes, ("id_test", "ood_bg", "geo_ood")):
-        for e in ("m2", "m3", "m4"):
+        extra = {"ablB_endpoint_emb": ("B: endpoint + ||z1 - Wa||² (no FM)", "tab:purple"), "ablB_fm_only": ("B: FM only (no endpoint loss)", "tab:orange"),
+                 "ablF_ot_pairing": ("F: FM + endpoint, OT re-pairing", "tab:brown")}
+        for e in ("m2", "m3", "m4", *extra):
             dd = d[(d.exp == e) & (d.eval_split == sp)].groupby("steps").mse.agg(["mean", "std"]).reset_index()
             if dd.empty: continue
-            ax.errorbar(dd.steps, dd["mean"], yerr=dd["std"].fillna(0), marker="o", label=LABELS[e], color=COLORS[e], capsize=2)
-        ax.set_xscale("log", base=2); ax.set_xlabel("evaluation Euler steps (trained with 8)"); ax.set_ylabel("action MSE"); ax.set_title(sp); ax.legend(fontsize=8)
+            lab, col = (LABELS[e], COLORS[e]) if e in LABELS else extra[e]
+            ax.errorbar(dd.steps, dd["mean"], yerr=dd["std"].fillna(0), marker="o", label=lab, color=col, capsize=2, ls="-" if e in LABELS else "--")
+        ax.set_xscale("log", base=2); ax.set_yscale("log"); ax.set_xlabel("evaluation Euler steps (trained with 8)"); ax.set_ylabel("action MSE (log)"); ax.set_title(sp); ax.legend(fontsize=7)
     plt.tight_layout(); plt.savefig(FIG / "fig9_ode_step_sweep.png", dpi=110); plt.close()
 
 

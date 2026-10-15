@@ -1,0 +1,106 @@
+{
+  "run_name": "m2_linear_dinov3_vits16_s1_frac0.01",
+  "git_sha": "33516808141091b5c6185932443c39cb9674fbfe",
+  "config": {
+    "data_root": "data_cache/reaching_v1",
+    "features_root": "results/features",
+    "backbone": "dinov3_vits16",
+    "feature_key": "cls",
+    "train_split": "train",
+    "train_fraction": 0.01,
+    "val_split": "val",
+    "latent_dim": 64,
+    "action_dim": 2,
+    "embedding_seed": 0,
+    "projector": "linear",
+    "net": {
+      "hidden_dim": 256,
+      "num_layers": 3,
+      "mlp_ratio": 4.0
+    },
+    "optim": {
+      "lr": 0.003,
+      "weight_decay": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "batch_size": 256,
+      "steps": 6000,
+      "warmup_steps": 200,
+      "grad_clip": 1.0,
+      "schedule": "cosine"
+    },
+    "eval_every": 250,
+    "log_grad_cosine_every": 250,
+    "select_on": "val_action_mse",
+    "seed": 1,
+    "device": "cuda",
+    "out_root": "results",
+    "run_name": "m2_linear_dinov3_vits16_s1_frac0.01",
+    "model": {
+      "kind": "m2",
+      "n_steps": 8,
+      "lambda_fm": 0.0,
+      "lambda_action": 1.0,
+      "lambda_emb": 0.0,
+      "lambda_cf": 0.0,
+      "cf_times": [
+        1.0
+      ],
+      "pairing": "paired"
+    }
+  },
+  "seed": 1,
+  "params": {
+    "trainable_total": 2752640,
+    "net": 2728000,
+    "projector_trainable": 24640
+  },
+  "dataset_manifest": {
+    "name": "reaching_v1",
+    "seed": 2026,
+    "git_sha": "8618d6cf713182685492c822a0fbc12430e3309a",
+    "train_n_used": 100,
+    "train_sha": "7cbed903f67538e2"
+  },
+  "backbone": {
+    "name": "dinov3_vits16",
+    "timm_name": "vit_small_patch16_dinov3.lvd1689m",
+    "hf_hub_id": "timm/vit_small_patch16_dinov3.lvd1689m",
+    "hf_revision": "3bf4720a82ec2066db88137180ff1f83a675cef0",
+    "img_size": 224,
+    "feature_dim": 384,
+    "num_prefix_tokens": 5,
+    "num_params": 21586944,
+    "preprocessing": "uint8 RGB -> float [0,1] -> resize to 224 (bilinear, if needed) -> normalize ImageNet mean/std; eval mode, fp32, no augmentation"
+  },
+  "feature_key": "cls",
+  "feature_cache_sha": "b491dc3113ece242",
+  "environment": {
+    "python": "3.10.19",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "numpy": "1.26.4",
+    "sklearn": "1.7.2",
+    "gpu": "NVIDIA GeForce RTX 5090 Laptop GPU",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+  },
+  "action_norm": {
+    "mean": [
+      -0.05845228210091591,
+      -0.0833079144358635
+    ],
+    "std": [
+      0.6080403923988342,
+      0.6488730311393738
+    ]
+  },
+  "train_time_s": 192.75268173217773,
+  "nonfinite_loss_steps": 0,
+  "best_val_mse": 0.41836923360824585,
+  "best_step": 1750,
+  "checkpoint": "/home/gn/Projects/ControlLearning/results/runs/m2_linear_dinov3_vits16_s1_frac0.01/best.pt",
+  "last_checkpoint": "/home/gn/Projects/ControlLearning/results/runs/m2_linear_dinov3_vits16_s1_frac0.01/last.pt",
+  "selection": "val_action_mse"
+}
