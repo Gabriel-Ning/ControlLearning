@@ -1,0 +1,5 @@
+# M1 - direct regression: same network class as the velocity net evaluated at constant t=0; endpoint action loss only
+model:
+  kind: m1
+  lambda_action: 1.0
+  lambda_emb: 0.0

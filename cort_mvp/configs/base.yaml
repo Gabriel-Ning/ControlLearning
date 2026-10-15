@@ -1,0 +1,46 @@
+# Shared defaults for every trainable model (M1-M4). Experiment yamls override `model.*` only.
+data_root: data_cache/reaching_v1
+features_root: results/features
+backbone: dinov3_vits16
+feature_key: cls            # primary frozen feature h
+train_split: train
+train_fraction: 1.0         # Ablation E: fraction of training STATES (seeded subset)
+val_split: val
+
+latent_dim: 64
+action_dim: 2
+embedding_seed: 0           # W_action is fixed across all runs
+projector: linear           # linear | mlp2 | frozen_random
+
+net:
+  hidden_dim: 256
+  num_layers: 3
+  mlp_ratio: 4.0
+
+optim:
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  betas: [0.9, 0.999]
+  batch_size: 256
+  steps: 6000
+  warmup_steps: 200
+  grad_clip: 1.0
+  schedule: cosine
+
+eval_every: 250
+log_grad_cosine_every: 250   # M3 only: cosine between grad(L_fm) and grad(L_action)
+select_on: val_action_mse     # checkpoint selection metric (validation split only; never OOD test)
+seed: 0
+device: cuda
+out_root: results
+run_name: null                # default: <model>_<projector>_<backbone>_s<seed>
+
+model:
+  kind: m3
+  n_steps: 8
+  lambda_fm: 1.0
+  lambda_action: 1.0
+  lambda_emb: 0.0
+  lambda_cf: 0.0
+  cf_times: [1.0]
+  pairing: paired             # paired | ot   (ot = upstream OT-CFM minibatch re-pairing, Ablation F)

@@ -1,0 +1,10 @@
+# M4 - M3 + explicit counterfactual invariance on paired images (positive control / intervention, NOT the FM hypothesis)
+model:
+  kind: m4
+  n_steps: 8
+  lambda_fm: 1.0
+  lambda_action: 1.0
+  lambda_emb: 0.0
+  lambda_cf: 1.0
+  cf_times: [0.0, 0.5, 1.0]
+  pairing: paired

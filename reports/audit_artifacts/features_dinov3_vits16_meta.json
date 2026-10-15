@@ -12,6 +12,16 @@
   },
   "dataset": "data_cache/reaching_v1",
   "splits": {
+    "train_cf": {
+      "n": 10000,
+      "cls_shape": [
+        10000,
+        384
+      ],
+      "cls_sha256": "d92db4abf54045c7",
+      "patch_mean_sha256": "fefaff7cb97551ed",
+      "cls_norm_mean": 9.21435260772705
+    },
     "cf_test_v0": {
       "n": 2000,
       "cls_shape": [
@@ -128,7 +138,7 @@
     "patch_mean"
   ],
   "primary_feature": "cls",
-  "created": "2026-10-15 23:51:47",
+  "created": "2026-10-15 23:59:00",
   "determinism": {
     "max_abs_diff_repeat": 0.0,
     "max_abs_diff_vs_cache": 0.0,

@@ -1,0 +1,7 @@
+# M2 - residual ODE with endpoint action supervision only (no FM velocity loss). Same net / integrator / steps as M3.
+model:
+  kind: m2
+  n_steps: 8
+  lambda_fm: 0.0
+  lambda_action: 1.0
+  lambda_emb: 0.0

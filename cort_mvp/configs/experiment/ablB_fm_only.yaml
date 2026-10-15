@@ -1,0 +1,1 @@
+model: {kind: m3, n_steps: 8, lambda_fm: 1.0, lambda_action: 0.0, lambda_emb: 0.0, pairing: paired}

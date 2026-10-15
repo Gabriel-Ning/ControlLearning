@@ -61,6 +61,9 @@ def main():
 
     meta = {"backbone": asdict(model.info), "dataset": str(data), "splits": {}, "feature_keys": ["cls", "patch_mean"],
             "primary_feature": "cls", "created": time.strftime("%Y-%m-%d %H:%M:%S")}
+    if (out / "meta.json").exists():   # merge so partial (--splits) runs do not drop earlier entries
+        with open(out / "meta.json") as f:
+            meta["splits"] = json.load(f).get("splits", {})
     splits = args.splits or all_splits(data)
     t0 = time.time()
     for name in splits:

@@ -127,6 +127,9 @@ def main():
     ap.add_argument("--spurious", action="store_true", help="write the spurious-correlation diagnostic variant")
     ap.add_argument("--max_distractors", type=int, default=4)
     ap.add_argument("--halo_prob", type=float, default=0.5)
+    ap.add_argument("--extra_train_cf", action="store_true",
+                    help="only add a `train_cf` split: the existing train states re-rendered with a second seen-family "
+                         "nuisance (used exclusively by the M4 positive control)")
     args = ap.parse_args()
 
     sizes = {k: max(8, int(v * args.scale)) for k, v in DEFAULT_SIZES.items()}
@@ -137,6 +140,25 @@ def main():
     rng = np.random.default_rng(args.seed)
     draw_arm = not args.no_arm
     t0 = time.time()
+
+    if args.extra_train_cf:
+        rng = np.random.default_rng(args.seed + 1)
+        tr = np.load(out / "train" / "meta.npz")
+        states, ids = tr["states"].astype(np.float64), tr["state_id"]
+        etas, meta = build_split("train_cf", states, rng, list(R.SEEN_FAMILIES), state_ids=ids, variant=1,
+                                 max_distractors=args.max_distractors, halo_prob=args.halo_prob)
+        # guarantee the nuisance actually differs from the primary train rendering
+        assert not np.array_equal(meta["nuisance_seed"], tr["nuisance_seed"])
+        imgs = render_split(states, etas, draw_arm, args.workers)
+        info = save_split(out, "train_cf", imgs, meta, etas)
+        with open(out / "manifest.json") as f:
+            manifest = json.load(f)
+        manifest["splits"]["train_cf"] = info
+        manifest["train_cf_note"] = "same states as train, independent seen-family nuisance; used only by M4"
+        with open(out / "manifest.json", "w") as f:
+            json.dump(manifest, f, indent=2)
+        print(f"[{time.time() - t0:7.1f}s] train_cf   n={info['n']} fam={info['bg_family_counts']}")
+        return
 
     # ---- disjoint physical states (float64 continuous sampling; verified below)
     n_main = sizes["train"] + sizes["val"] + sizes["id_test"] + sizes["ood_bg"] + sizes["cf_test"]

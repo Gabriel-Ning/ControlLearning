@@ -1,0 +1,2 @@
+# full-latent endpoint supervision (ODE endpoint -> za, i.e. VITA's consistency/FLC term) + action loss, no FM velocity loss
+model: {kind: m2, n_steps: 8, lambda_fm: 0.0, lambda_action: 1.0, lambda_emb: 1.0}
