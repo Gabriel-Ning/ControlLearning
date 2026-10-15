@@ -1,0 +1,18 @@
+# upstream clone (tracked by SHA in reports/00_repo_audit.md)
+VITA/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# large generated artifacts
+data_cache/
+results/checkpoints/
+results/representations/
+results/features/
+*.npz
+*.pt
+*.safetensors
+*.png
+!results/figures/*.png
+!figures/*.png
